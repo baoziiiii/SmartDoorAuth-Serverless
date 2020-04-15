@@ -22,7 +22,7 @@
 
 ### `/Local`
 
-  - AWS_env_init.py  
+  AWS_env_init.py  
       1. delete collection if exists and create a collection
       2. stop and delete streamprocessor if exists and create a streamprocessor
       3. start the streamprocessor
