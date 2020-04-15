@@ -16,8 +16,8 @@
   
   Webs
   
-  - WP1
-  - WP2 
+  - WP1  https://p2wp1.s3.amazonaws.com/index.html 
+  - WP2  https://p2wp2.s3.amazonaws.com/index.html
 
 
 ### `/Local`
