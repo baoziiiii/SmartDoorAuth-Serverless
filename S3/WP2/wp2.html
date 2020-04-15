@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#btn").click(function() {
+                var otp = $.trim($("[name=otp]").val());
+                var url = 'https://z1le2e5b5b.execute-api.us-east-1.amazonaws.com/wp2?otp=' + otp;
+                //alert(url);
+                $.get(url, function(data) {
+                    var obj = JSON.parse(JSON.stringify(data, null, 2));
+                    $("pre").text(obj.body);
+                });
+ 
+            });
+ 
+        });
+    </script>
+</head>
+ 
+<body>
+    otp <input name="otp">
+    
+    <button id="btn" type="button">submit</button>
+    <br>
+    <pre></pre>
+</body>

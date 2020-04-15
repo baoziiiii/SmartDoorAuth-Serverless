@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+        	face_id = GetQueryString('faceid');
+			pic_addr = "https://kvslambda.s3.amazonaws.com/" + GetQueryString('photoid');
+			//alert(pic_addr);
+			$("#pic_addr").attr("src", pic_addr);
+
+            $("#btn").click(function() {
+                var name = $.trim($("[name=name]").val());
+                var phone_number = $.trim($("[name=phone_number]").val());
+                var url = 'https://89mi7wj1mi.execute-api.us-east-1.amazonaws.com/wp1?name=' + name + '&phone_number=' + phone_number + '&face_id=' + face_id ;
+                //alert(url);
+                $.get(url, function(data) {
+                    //$("pre").text(JSON.stringify(data, null, 2));
+                });
+ 
+            });
+ 
+        });
+
+
+        // 获取url参数名
+		function GetQueryString(name)
+		{
+		    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		    var r = window.location.search.substr(1).match(reg);
+		    if(r!=null){
+		        return unescape(r[2]);
+		    }else{
+		        return null;
+		    }
+		}
+		
+		
+
+		
+
+    </script>
+</head>
+		
+ 
+<body>
+    <img id="pic_addr" src="" height="100">
+    <br>
+
+    name <input name="name" value="ck"> 
+    <br>
+    
+    phone_number +<input name="phone_number" value="13473351954">
+    <br>
+    
+    <button id="btn" type="button">submit</button>
+    <br>
+    <pre></pre>
+</body>
